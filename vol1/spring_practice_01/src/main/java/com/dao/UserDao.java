@@ -46,4 +46,11 @@ public class UserDao {
         return user;
     }
 
+    // 템플릿 메소드 패턴을 적용하여 DUserDao와 NUserDao에서 원하는대로 사용할 수 있도록 만듬.
+//    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+//    {
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/spring_book", "root", "root");
+//        return c;
+//    }
 }

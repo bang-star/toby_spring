@@ -11,6 +11,7 @@ public class UserDaoTest {
 
     @Test
     public void addAndGet() throws SQLException, ClassNotFoundException {
+
         UserDao userDao = new DaoFactory().userDao();
 
         User user = new User();
