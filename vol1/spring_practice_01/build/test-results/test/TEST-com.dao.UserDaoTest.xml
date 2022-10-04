@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T14:52:30" hostname="DESKTOP-UE84M7G" time="0.294">
+  <properties/>
+  <testcase name="addAndGet()" classname="com.dao.UserDaoTest" time="0.294"/>
+  <system-out><![CDATA[0 Enroll Success
+seongminBang
+1234
+0 Search Success
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
