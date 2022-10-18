@@ -8,6 +8,9 @@ public class UserDao {
 
     // 인터페이스를 통해 오브젝트에 접근하므로 구체적인 클래스 정보를 알 필요가 없다.
     private ConnectionMaker connectionMaker;
+    // 매번 새로운 값으로 바뀌는 정보를 담은 인스턴스 변수. 심각한 문제가 발생한다.
+    private Connection c;
+    private User user;
 
     private UserDao(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
@@ -27,9 +30,9 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        this.connection = connectionMaker.makeConnection();
+        this.c = connectionMaker.makeConnection();
 
-        PreparedStatement ps = this.connection.prepareStatement("select * from users where id = ?");
+        PreparedStatement ps = this.c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
 
         ResultSet rs = ps.executeQuery();
@@ -42,7 +45,7 @@ public class UserDao {
 
         rs.close();
         ps.close();
-        this.connection.close();
+        this.c.close();
 
         return this.user;
     }
