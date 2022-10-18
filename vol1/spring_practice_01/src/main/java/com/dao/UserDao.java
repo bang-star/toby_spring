@@ -9,9 +9,6 @@ public class UserDao {
     // 인터페이스를 통해 오브젝트에 접근하므로 구체적인 클래스 정보를 알 필요가 없다.
     private ConnectionMaker connectionMaker;
 
-    private Connection connection;
-    private User user;
-
     private UserDao(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
