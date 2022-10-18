@@ -2,16 +2,18 @@ package com.dao;
 
 import com.domain.User;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserDaoTest {
 
     @Test
     public void addAndGet() throws SQLException, ClassNotFoundException {
-        UserDao userDao = new DaoFactory().userDao();
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
         user.setId("0");
@@ -29,5 +31,22 @@ public class UserDaoTest {
         System.out.println(result.getPassword());
 
         System.out.println(result.getId()+" Search Success");
+    }
+
+    @Test
+    public void checkIdentity() {
+
+        DaoFactory factory = new DaoFactory();
+        UserDao dao1 = factory.userDao();
+        UserDao dao2 = factory.userDao();
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao dao3 = context.getBean("userDao", UserDao.class);
+        UserDao dao4 = context.getBean("userDao", UserDao.class);
+
+        System.out.println("dao1 - "+dao1);
+        System.out.println("dao2 - "+dao2);
+        System.out.println("dao3 - "+dao3);
+        System.out.println("dao4 - "+dao4);
     }
 }
