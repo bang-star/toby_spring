@@ -4,17 +4,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class CountingConnectionMaker implements ConnectionMaker{
-    private int counter = 0;
-    private ConnectionMaker realConnectionMaker;
+    int counter = 0;
+    private ConnectionMaker realconnectionMaker;
 
-    public CountingConnectionMaker(ConnectionMaker realConnectionMaker) {
-        this.realConnectionMaker = realConnectionMaker;
+    public CountingConnectionMaker(ConnectionMaker realconnectionMaker) {
+        this.realconnectionMaker = realconnectionMaker;
     }
 
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
         this.counter++;
-        return realConnectionMaker.makeConnection();
+        return realconnectionMaker.makeConnection();
     }
 
     public int getCounter() {
