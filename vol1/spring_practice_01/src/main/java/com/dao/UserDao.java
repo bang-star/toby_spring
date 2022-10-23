@@ -13,17 +13,15 @@ public class UserDao {
     private Connection c;
     private User user;
 
-    public UserDao() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
-        this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
-    }
-
-    public void setConnectionMaker(ConnectionMaker connectionMaker) {
-        this.connectionMaker = connectionMaker;
-    }
+    // 수정자 메소드를 이용한 주입을 위해 default 생성자 도입
+    public UserDao() {}
 
     public UserDao(ConnectionMaker connectionMaker) {
 
+        this.connectionMaker = connectionMaker;
+    }
+
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
 
