@@ -18,6 +18,10 @@ public class UserDao {
         this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
     }
 
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+
     public UserDao(ConnectionMaker connectionMaker) {
 
         this.connectionMaker = connectionMaker;
