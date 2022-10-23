@@ -18,6 +18,11 @@ public class UserDao {
         this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
     }
 
+    public UserDao(ConnectionMaker connectionMaker) {
+
+        this.connectionMaker = connectionMaker;
+    }
+
     public void add(User user) throws ClassNotFoundException, SQLException{
         Connection c = connectionMaker.makeConnection();
 
