@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dao.UserDaoConnectionCountingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-23T09:52:40" hostname="DESKTOP-UE84M7G" time="0.6">
-  <properties/>
-  <testcase name="CountingConnectionMaker에 대한 테스트" classname="com.dao.UserDaoConnectionCountingTest" time="0.6"/>
-  <system-out><![CDATA[Connection counter : 1
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
