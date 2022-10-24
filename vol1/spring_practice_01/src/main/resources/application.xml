@@ -1,0 +1,9 @@
+<beans>
+    <bean id="localDBConnectionMaker" class="...LocalDBConnectionMaker" />
+    <bean id="testDBConnectionMaker" class="...TestDBDConnectionMaker" />
+    <bean id="productionDBConnectionMaker" class="...ProductionDBConnectionMaker" />
+
+    <bean id="userDao" class="com.dao.UserDao">
+        <property name="connectionMaker" ref="productionDBConnectionMaker" />
+    </bean>
+</beans>
