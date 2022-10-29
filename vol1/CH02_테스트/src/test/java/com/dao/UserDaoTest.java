@@ -29,10 +29,13 @@ public class UserDaoTest {
         User result = userDao.get("0");
         assertEquals("0", result.getId());
 
-        System.out.println(result.getName());
-        System.out.println(result.getPassword());
-
-        System.out.println(result.getId()+" Search Success");
+        if(!user.getName().equals(result.getName())){
+            System.out.println("테스트 실패 (name)");
+        }else if(!user.getPassword().equals(result.getPassword())){
+            System.out.println("테스트 실패 (password)");
+        }else{
+            System.out.println("조회 테스트 성공");
+        }
     }
 
     @Test
