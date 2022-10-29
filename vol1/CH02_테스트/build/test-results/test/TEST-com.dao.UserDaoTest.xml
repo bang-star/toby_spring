@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-26T14:58:19" hostname="DESKTOP-UE84M7G" time="0.499">
+  <properties/>
+  <testcase name="checkIdentity()" classname="com.dao.UserDaoTest" time="0.499"/>
+  <system-out><![CDATA[dao1 - com.dao.UserDao@4397ad89
+dao2 - com.dao.UserDao@59cba5a
+dao3 - com.dao.UserDao@1bd39d3c
+dao4 - com.dao.UserDao@1bd39d3c
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
