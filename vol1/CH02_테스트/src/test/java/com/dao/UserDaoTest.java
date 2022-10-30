@@ -8,7 +8,8 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class UserDaoTest {
 
@@ -18,24 +19,15 @@ public class UserDaoTest {
         UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
-        user.setId("0");
-        user.setName("seongminBang");
-        user.setPassword("1234");
-
+        user.setId("2");
+        user.setName("customer1");
+        user.setPassword("customer1");
         userDao.add(user);
 
-        System.out.println(user.getId() + " Enroll Success");
+        User result = userDao.get(user.getId());
 
-        User result = userDao.get("0");
-        assertEquals("0", result.getId());
-
-        if(!user.getName().equals(result.getName())){
-            System.out.println("테스트 실패 (name)");
-        }else if(!user.getPassword().equals(result.getPassword())){
-            System.out.println("테스트 실패 (password)");
-        }else{
-            System.out.println("조회 테스트 성공");
-        }
+        assertThat(result.getName(), is(user.getName()));
+        assertThat(result.getPassword(), is(user.getPassword()));
     }
 
     @Test
