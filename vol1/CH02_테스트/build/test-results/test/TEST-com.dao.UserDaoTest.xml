@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-30T09:00:38" hostname="DESKTOP-UE84M7G" time="0.585">
+<testsuite name="com.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-31T09:23:36" hostname="DESKTOP-UE84M7G" time="0.628">
   <properties/>
-  <testcase name="checkIdentity()" classname="com.dao.UserDaoTest" time="0.585"/>
-  <system-out><![CDATA[dao1 - com.dao.UserDao@1bd39d3c
-dao2 - com.dao.UserDao@6f19ac19
-dao3 - com.dao.UserDao@119cbf96
-dao4 - com.dao.UserDao@119cbf96
-]]></system-out>
+  <testcase name="addAndGet()" classname="com.dao.UserDaoTest" time="0.628"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
