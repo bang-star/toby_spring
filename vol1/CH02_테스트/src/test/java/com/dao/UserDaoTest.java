@@ -17,22 +17,23 @@ public class UserDaoTest {
     public void addAndGet() throws SQLException {
         ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
         UserDao userDao = context.getBean("userDao", UserDao.class);
+        User user1 = new User("gyumee", "박성철", "springno1");
+        User user2 = new User("leegw700", "이길원", "springno2");
 
         userDao.deleteAll();
         assertThat(userDao.getCount(), is(0));
 
-        User user = new User();
-        user.setId("0");
-        user.setName("test123");
-        user.setPassword("test123");
+        userDao.add(user1);
+        userDao.add(user2);
+        assertThat(userDao.getCount(), is(2));
 
-        userDao.add(user);
-        assertThat(userDao.getCount(), is(1));
+        User result1 = userDao.get(user1.getId());
+        assertThat(result1.getName(), is(user1.getName()));
+        assertThat(result1.getPassword(), is(user1.getPassword()));
 
-        User result = userDao.get(user.getId());
-
-        assertThat(result.getName(), is(user.getName()));
-        assertThat(result.getPassword(), is(user.getPassword()));
+        User result2 = userDao.get(user1.getId());
+        assertThat(result2.getName(), is(user2.getName()));
+        assertThat(result2.getPassword(), is(user2.getPassword()));
     }
 
     @Test
@@ -50,5 +51,27 @@ public class UserDaoTest {
         System.out.println("dao2 - "+dao2);
         System.out.println("dao3 - "+dao3);
         System.out.println("dao4 - "+dao4);
+    }
+
+    @Test
+    public void count() throws SQLException {
+        ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+
+        UserDao dao = context.getBean("userDao", UserDao.class);
+        User user1 = new User("gyumee", "박성철", "springno1");
+        User user2 = new User("leegw700", "이길원", "springno2");
+        User user3 = new User("bumjin", "박범진", "springno3");
+
+        dao.deleteAll();
+        assertThat(dao.getCount(), is(0));
+
+        dao.add(user1);
+        assertThat(dao.getCount(), is(1));
+
+        dao.add(user2);
+        assertThat(dao.getCount(), is(2));
+
+        dao.add(user3);
+        assertThat(dao.getCount(), is(3));
     }
 }
