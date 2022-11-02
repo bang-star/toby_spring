@@ -9,11 +9,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.sql.SQLException;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UserDaoTest {
 
@@ -35,7 +33,7 @@ public class UserDaoTest {
         assertThat(result1.getName(), is(user1.getName()));
         assertThat(result1.getPassword(), is(user1.getPassword()));
 
-        User result2 = userDao.get(user1.getId());
+        User result2 = userDao.get(user2.getId());
         assertThat(result2.getName(), is(user2.getName()));
         assertThat(result2.getPassword(), is(user2.getPassword()));
     }
